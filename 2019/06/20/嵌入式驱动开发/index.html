@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        第一篇｜undefined
+        【嵌入式驱动 一】嵌入式驱动开发的前期准备（上）｜undefined
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2019/06/14/first-md/">
+    <link rel="canonical" href="http://yoursite.com/2019/06/20/嵌入式驱动开发/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -136,12 +136,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>第一篇</h1>
+                    <h1>【嵌入式驱动 一】嵌入式驱动开发的前期准备（上）</h1>
                     
                     <span class="meta">
                          作者 王振华
                         <span>
-                          日期 2019-06-14
+                          日期 2019-06-20
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -153,7 +153,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            第一篇
+            【嵌入式驱动 一】嵌入式驱动开发的前期准备（上）
         </span>
     </div>
 </header>
@@ -164,18 +164,23 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>&emsp;&emsp;很久以前就想自己搭建一个个人博客，但是一直没有动手，今晚心血来潮，决心今晚一定要把博客搭好。有些事做就做了，不做也就一直不会做。<br>&emsp;&emsp;博客搭建的还挺顺利，现在是23：30，希望以后借助这个平台写出优质的博客！  </p>
-<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2019年6月14日  夜</p>
+                <p>从今天开始，我将写一系列嵌入式驱动开发的教程，大部分都是例程，使用的开发板是飞凌imx6Q。人无完人，文章难免有错误，希望大家邮箱告诉我，给我一个进步的机会，在这先谢谢大家！也感谢大家的阅读！如果对内容有别的见解也可以交流。（我的邮箱：<a href="mailto:wangzh92429@163.com" target="_blank" rel="noopener">wangzh92429@163.com</a>）  </p>
+<h1 id="【嵌入式驱动-一】嵌入式驱动开发的前期准备（上）"><a href="#【嵌入式驱动-一】嵌入式驱动开发的前期准备（上）" class="headerlink" title="【嵌入式驱动 一】嵌入式驱动开发的前期准备（上）"></a>【嵌入式驱动 一】嵌入式驱动开发的前期准备（上）</h1><h2 id="1、虚拟机的资源下载"><a href="#1、虚拟机的资源下载" class="headerlink" title="1、虚拟机的资源下载"></a>1、虚拟机的资源下载</h2><p>平常我都是使用windows，但是开发嵌入式驱动在Linux下交叉编译比较方便，所以为方便起见，我们安装一个Linux虚拟机。  </p>
+<p>我们虚拟机使用ubuntu系统，首先我们要下载ubuntu镜像，可以通过官网下载（下载链接：<a href="https://ubuntu.com/download/desktop" target="_blank" rel="noopener">https://ubuntu.com/download/desktop</a>）,也可以在<a href="http://mirrors.163.com/" target="_blank" rel="noopener">网易开源镜像</a>下载，我通过网易开源镜像下载ubuntu16.04,如下图所示，可以选择32位或者64位。当然，也可以选择别的版本。 <img src="/image/ubuntu.jpg" alt="ubuntu">  </p>
+<p>下载好ubuntu镜像，再下载VMware虚拟机。附上官网链接<a href="https://www.vmware.com/cn.html" target="_blank" rel="noopener">https://www.vmware.com/cn.html</a>,我是直接在百度上搜索，也可以搜到，直接下载即可，这个软件是付费软件，所以小伙伴们懂得，这个只能靠自己了，我在这就不提供方法了！<img src="/image/vmware.jpg" alt="vmware下载">  </p>
+<h2 id="2、虚拟机安装"><a href="#2、虚拟机安装" class="headerlink" title="2、虚拟机安装"></a>2、虚拟机安装</h2><p>（1）首先，我们先创建一个虚拟机，如下图所示：<img src="/image/xuniji_1.jpg" alt><br>（2）然后会弹出如下所示界面，选择典型即可，下一步； <img src="/image/xuniji_2.jpg" alt><br>（3）选择“安装程序光盘映像文件”，点击浏览选择刚才下载的iso文件，下一步；<img src="/image/xuniji_3.jpg" alt><br>（4）“全名”是我们安装的这个ubuntu的名字，我就让他叫“Ubuntu16”得了，你们可以随便取名字，下面的“用户名”和“密码”是我们创建好虚拟机，登陆时候的用户名和密码，所以自己设置的什么要记住，设置好下一步；<img src="/image/xuniji_4.jpg" alt><br>（5）“虚拟机名称”是我们创建好这个虚拟机后，显示的这个虚拟机的名字，也就是在vmware中显示的名字，也可以随便取，“位置”我们需要在电脑上找个剩余空间比较多的盘创建一个文件夹，然后这里选中，因为虚拟机随着使用可能也要占很大一部分空间，设置好下一步：<img src="/image/xuniji_5.jpg" alt><br>（6）设置虚拟机磁盘容量，这个可以根据实际情况设置，我先暂时设置为20G吧，这个如果不够了，后期可以扩展，设置好下一步：<img src="/image/xuniji_6.jpg" alt><br>（7）在弹出的界面中选择“自定义硬件”，然后根据自己电脑的情况设置内存和处理器，别的先暂时不管。这里不是说要设置成和你电脑配置一样，举个例子，如果你电脑是4G内存，拿可以分1G，这样对你宿主机影响不大，如果你有8G内存，那你可以分2G，这样对你宿主机影响不大，你虚拟机运行也能更流畅一些，不过Ubuntu对配置要求不高，2G足够了。点击“完成”，虚拟机也就创建好了，因为最后一步我们选择“创建后开启此虚拟机”，所以，我们虚拟机开启了。<img src="/image/xuniji_7.jpg" alt> <img src="/image/xuniji_8.jpg" alt><br>（8）虚拟机开启后会安装系统。虚拟机就相当于我们的一台电脑，现在这台电脑开启了。接下来的步骤就和我们新买了电脑装windows的过程差不多了，跟着说明进行一些配置，完成后就能在Ubuntu上自由飞翔了！  </p>
+<p>现在已经是半夜了，我不等了，先睡了，明天看看有没有装好，下一次写ubuntu上交叉编译链和一些方便、常用的工具的安装。  </p>
+<p>晚安~</p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/06/20/嵌入式驱动开发/" data-toggle="tooltip" data-placement="top" title="【嵌入式驱动 一】嵌入式驱动开发的前期准备（上）">&larr; Previous Post</a>
-                    </li>
                     
+                    <li class="next">
+                        <a href="/2019/06/14/first-md/" data-toggle="tooltip" data-placement="top" title="第一篇">Next Post &rarr;</a>
+                    </li>
                     
                 </ul>
 
@@ -193,7 +198,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#【嵌入式驱动-一】嵌入式驱动开发的前期准备（上）"><span class="toc-text">【嵌入式驱动 一】嵌入式驱动开发的前期准备（上）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、虚拟机的资源下载"><span class="toc-text">1、虚拟机的资源下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、虚拟机安装"><span class="toc-text">2、虚拟机安装</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
