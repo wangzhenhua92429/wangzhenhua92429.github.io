@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        【嵌入式驱动三】内核编译和驱动加载｜undefined
+        【嵌入式驱动三】内核配置和编译｜undefined
         
     </title>
 
@@ -136,7 +136,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>【嵌入式驱动三】内核编译和驱动加载</h1>
+                    <h1>【嵌入式驱动三】内核配置和编译</h1>
                     
                     <span class="meta">
                          作者 王振华
@@ -153,7 +153,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            【嵌入式驱动三】内核编译和驱动加载
+            【嵌入式驱动三】内核配置和编译
         </span>
     </div>
 </header>
@@ -165,7 +165,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <p>相关文章链接：<br><a href="https://www.keepgoingwang.com/2019/06/20/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91/" target="_blank" rel="noopener">【嵌入式驱动一】嵌入式驱动开发的前期准备（上）</a></p>
-<h2 id="【嵌入式驱动二】嵌入式驱动开发的前期准备（下）"><a href="#【嵌入式驱动二】嵌入式驱动开发的前期准备（下）" class="headerlink" title="【嵌入式驱动二】嵌入式驱动开发的前期准备（下）"></a><a href="https://www.keepgoingwang.com/2019/06/22/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-1/" target="_blank" rel="noopener">【嵌入式驱动二】嵌入式驱动开发的前期准备（下）</a></h2><h1 id="内核编译和驱动加载"><a href="#内核编译和驱动加载" class="headerlink" title="内核编译和驱动加载"></a>内核编译和驱动加载</h1><h2 id="一、内核配置"><a href="#一、内核配置" class="headerlink" title="一、内核配置"></a>一、内核配置</h2><p>之前我们搭建好了交叉编译链，准备好内核源代码，我们就可以编译了。</p>
+<h2 id="【嵌入式驱动二】嵌入式驱动开发的前期准备（下）"><a href="#【嵌入式驱动二】嵌入式驱动开发的前期准备（下）" class="headerlink" title="【嵌入式驱动二】嵌入式驱动开发的前期准备（下）"></a><a href="https://www.keepgoingwang.com/2019/06/22/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-1/" target="_blank" rel="noopener">【嵌入式驱动二】嵌入式驱动开发的前期准备（下）</a></h2><h1 id="内核配置和编译"><a href="#内核配置和编译" class="headerlink" title="内核配置和编译"></a>内核配置和编译</h1><h2 id="一、内核配置"><a href="#一、内核配置" class="headerlink" title="一、内核配置"></a>一、内核配置</h2><p>之前我们搭建好了交叉编译链，准备好内核源代码，我们就可以编译了。</p>
 <p>我用的是3.0.35版本的内核。<img src="/image/嵌入式2/源码.jpg" alt><br>使用如下命令解压缩内核文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf linux-3.0.35.tar.bz2</span><br></pre></td></tr></table></figure></p>
 <p>解压完成后能看到内核文件夹下的各个文件夹，各个文件夹都包含特定的文件:</p>
 <ul>
@@ -229,7 +229,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#【嵌入式驱动二】嵌入式驱动开发的前期准备（下）"><span class="toc-text">【嵌入式驱动二】嵌入式驱动开发的前期准备（下）</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#内核编译和驱动加载"><span class="toc-text">内核编译和驱动加载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、内核配置"><span class="toc-text">一、内核配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、内核的编译"><span class="toc-text">二、内核的编译</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#【嵌入式驱动二】嵌入式驱动开发的前期准备（下）"><span class="toc-text">【嵌入式驱动二】嵌入式驱动开发的前期准备（下）</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#内核配置和编译"><span class="toc-text">内核配置和编译</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、内核配置"><span class="toc-text">一、内核配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、内核的编译"><span class="toc-text">二、内核的编译</span></a></li></ol>
                 </li></div>
             </div>
         </div>
