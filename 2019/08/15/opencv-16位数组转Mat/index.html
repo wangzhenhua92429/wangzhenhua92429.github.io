@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        【嵌入式驱动三】内核配置和编译｜undefined
+        opencv/16位数组转Mat｜undefined
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2019/06/24/嵌入式驱动开发-2/">
+    <link rel="canonical" href="http://yoursite.com/2019/08/15/opencv-16位数组转Mat/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -136,12 +136,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>【嵌入式驱动三】内核配置和编译</h1>
+                    <h1>opencv/16位数组转Mat</h1>
                     
                     <span class="meta">
                          作者 王振华
                         <span>
-                          日期 2019-06-24
+                          日期 2019-08-15
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -153,7 +153,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            【嵌入式驱动三】内核配置和编译
+            opencv/16位数组转Mat
         </span>
     </div>
 </header>
@@ -164,58 +164,18 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>相关文章链接：<br><a href="https://www.keepgoingwang.com/2019/06/20/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91/" target="_blank" rel="noopener">【嵌入式驱动一】嵌入式驱动开发的前期准备（上）</a></p>
-<h2 id="【嵌入式驱动二】嵌入式驱动开发的前期准备（下）"><a href="#【嵌入式驱动二】嵌入式驱动开发的前期准备（下）" class="headerlink" title="【嵌入式驱动二】嵌入式驱动开发的前期准备（下）"></a><a href="https://www.keepgoingwang.com/2019/06/22/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-1/" target="_blank" rel="noopener">【嵌入式驱动二】嵌入式驱动开发的前期准备（下）</a></h2><p>如果在学习和工作的过程中有什么问题可以联系我，我非常乐意帮助大家解决问题。我的邮箱<a href="mailto:wangzh92429@163.com" target="_blank" rel="noopener">wangzh92429@163.com</a>。</p>
-<h1 id="内核配置和编译"><a href="#内核配置和编译" class="headerlink" title="内核配置和编译"></a>内核配置和编译</h1><h2 id="一、内核配置"><a href="#一、内核配置" class="headerlink" title="一、内核配置"></a>一、内核配置</h2><p>之前我们搭建好了交叉编译链，准备好内核源代码，我们就可以编译了。</p>
-<p>我用的是3.0.35版本的内核。<img src="/image/嵌入式2/源码.jpg" alt><br>使用如下命令解压缩内核文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf linux-3.0.35.tar.bz2</span><br></pre></td></tr></table></figure></p>
-<p>解压完成后能看到内核文件夹下的各个文件夹，各个文件夹都包含特定的文件:</p>
-<ul>
-<li><p><strong>arch目录</strong><br>arch目录包括了所有和结构体相关的核心代码。它的下面的每一个子目录都代表一种Linux支持的体系结构，例如i386就是Intel CPU及与之相兼容体系结构的子目录。PC机一般都基于此目录。</p>
-</li>
-<li><p><strong>include目录</strong><br>include目录包括编译核心所需要的大部分头文件，例如与平台无关的头文件在include/linux子目录下。</p>
-</li>
-<li><p><strong>init目录</strong><br>init目录包含核心的初始代码（不是系统的引导代码），有main.c和Version.c两个文件。这是研究核心如何工作的好起点。</p>
-</li>
-<li><p><strong>mm目录</strong><br>mm目录包含了所有的内存管理代码。与具有硬件体系结构相关的内存管理代码位于arch/*/mm目录下。</p>
-</li>
-<li><p><strong>drivers目录</strong><br>drivers目录中是系统中所有的设备驱动程序。它又进一步划分成几类设备驱动，每一种有对应的子目录，如声卡的驱动对应于drivers/sound。</p>
-</li>
-<li><p><strong>ipc目录</strong><br>ipc目录包含了核心进程间的通信代码。</p>
-</li>
-<li><p><strong>modules目录</strong><br>modules目录存放了已建好的、可动态加载的模块。</p>
-</li>
-<li><p><strong>fs目录</strong><br>fs目录存放Linux支持的文件系统代码。不同的文件系统有不同的子目录对应，如ext3文件系统对应的就是ext3子目录。<br>kernel内核管理的核心代码放在这里。同时与处理器结构相关代码都放在arch/*/kernel目录下。</p>
-</li>
-<li><p><strong>net目录</strong><br>net目录里是核心的网络部分代码，其每个子目录对应于网络的一个方面。</p>
-</li>
-<li><p><strong>lib目录</strong><br>lib目录包含了核心的库代码，不过与处理器结构相关的库代码放在arch/*lib/目录下。</p>
-</li>
-<li><p><strong>scripts目录</strong><br>scripts目录包含用于配置核心的脚本文件。</p>
-</li>
-<li><p><strong>documentation目录</strong><br>documentation目录下是一些文档，是对每个目录作用的具体说明。</p>
-</li>
-</ul>
-<p>在内核代码的根目录下有一个.config的文件，这个文件就是内核的配置文件，在配置内核的时候可以直接修改这个文件还可以使用make menuconfig修改，接下来介绍这两种方法：</p>
-<ol>
-<li>直接修改.config文件<br>如果熟悉各个驱动模块，我们可以直接找到相应的驱动，配置成‘y’、‘m’或者直接删除。这里的‘y’表示将该驱动之间放进内核，属于静态加载；这里‘m’表示动态加载驱动，需要我们手动加载驱动，我们下面会讲；将该驱动删除意思我们不需要这个驱动，将其删除。以按键驱动为例，它在.config文件中的配置为<img src="/image/嵌入式2/key_config.jpg" alt><br>我们看到按键驱动配置为‘y’，也就是说直接将按键驱动编译进内核。那么，我们将‘y’修改为‘m’，我们将把按键驱动以模块的形式编译，这样需要我们手动加载，这样做的好处是内核不臃肿，内核中只包含必须的驱动，不是必须的我们视情况手动加载。</li>
-<li>使用可视化界面<br>在Linux内核文件目录下执行make menuconfig命令，我们会看到如下界面：<br><img src="/image/嵌入式2/makemenuconfig.jpg" alt><br>这个界面就是内核的配置界面。<br>我们同样找到按键驱动<img src="/image/嵌入式2/gpiobuttons.jpg" alt><br>但是驱动的名和直接修改.config文件中的名不一样（在以后讲解）。但是我们使用“？”查看帮助信息<img src="/image/嵌入式2/gpiobuttonhelp.jpg" alt><br>确实是CONFIG_KEYBOARD_GPIO，所以是我们要找的按键驱动。<br>在可视化界面下，我们找到要设置的驱动，选中后点击“回车”键，驱动前的选项会在“<em>”、“M”和空三个中变化。其中“</em>”表示编译进内核；“M”表示以模块的方式编译；空表示删除不编译该驱动。</li>
-</ol>
-<h2 id="二、内核的编译"><a href="#二、内核的编译" class="headerlink" title="二、内核的编译"></a>二、内核的编译</h2><p>在配置好内核后，执行如下命令编译内核（也有可能不是uImage，可参考资料）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make uImage</span><br></pre></td></tr></table></figure></p>
-<p>待内核编译完成后（第一次编译时间可能稍长），再执行如下命令，编译以模块形式编译的驱动。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make modules</span><br></pre></td></tr></table></figure></p>
-<p>编译结束后，内核文件在内核源代码中的arch/arm/boot/目录下<br><img src="/image/嵌入式2/uImage.jpg" alt><br>以模块方式编译的驱动，编译完成的.ko文件在相应的源代码的目录下。</p>
+                <h1 id="【opencv】数组转Mat"><a href="#【opencv】数组转Mat" class="headerlink" title="【opencv】数组转Mat"></a>【opencv】数组转Mat</h1><h2 id="一、16位数组转Mat"><a href="#一、16位数组转Mat" class="headerlink" title="一、16位数组转Mat"></a>一、16位数组转Mat</h2><p>16位数组转Mat，数组可以是一维的也可以是二维的，一行代码搞定，我使用的raw数据，亲测有效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mat img = Mat(high, width, CV_16UC1, raw, Mat::AUTO_STEP).clone();</span><br></pre></td></tr></table></figure></p>
+<p>high:图像的高度<br>width：图像的宽度<br>CV_16UC1：表示16位无符号1通道<br>raw：数组</p>
+<h2 id="二、16位Mat转8位Mat"><a href="#二、16位Mat转8位Mat" class="headerlink" title="二、16位Mat转8位Mat"></a>二、16位Mat转8位Mat</h2><p>数组转成16位Mat后，由于opencv中很多方法只支持8位，所以将16位转成8位比较方便。转化的方法研究了一段时间，不过最后发现，方法还是很简单的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double min, max;</span><br><span class="line">minMaxIdx(img, &amp;min, &amp;max);</span><br><span class="line">img.convertTo(img, CV_8UC1, 255.0 / (max - min), -255.0*min / (max - min));</span><br></pre></td></tr></table></figure></p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/08/15/opencv-16位数组转Mat/" data-toggle="tooltip" data-placement="top" title="opencv/16位数组转Mat">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/06/23/vim-config/" data-toggle="tooltip" data-placement="top" title="vim配置C/C++阅读、开发神器">Next Post &rarr;</a>
+                        <a href="/2019/06/24/嵌入式驱动开发-2/" data-toggle="tooltip" data-placement="top" title="【嵌入式驱动三】内核配置和编译">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -234,8 +194,8 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#【嵌入式驱动二】嵌入式驱动开发的前期准备（下）"><span class="toc-text">【嵌入式驱动二】嵌入式驱动开发的前期准备（下）</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#内核配置和编译"><span class="toc-text">内核配置和编译</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、内核配置"><span class="toc-text">一、内核配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、内核的编译"><span class="toc-text">二、内核的编译</span></a></li></ol>
-                </li></div>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#【opencv】数组转Mat"><span class="toc-text">【opencv】数组转Mat</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、16位数组转Mat"><span class="toc-text">一、16位数组转Mat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、16位Mat转8位Mat"><span class="toc-text">二、16位Mat转8位Mat</span></a></li></ol></li></ol>
+                </div>
             </div>
         </div>
 
