@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        opencv数组转Mat｜undefined
+        opencv3编译安装｜undefined
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2019/08/15/opencv-16位数组转Mat/">
+    <link rel="canonical" href="http://yoursite.com/2019/08/23/opencv编译安装/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -136,12 +136,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>opencv数组转Mat</h1>
+                    <h1>opencv3编译安装</h1>
                     
                     <span class="meta">
                          作者 王振华
                         <span>
-                          日期 2019-08-15
+                          日期 2019-08-23
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -153,7 +153,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            opencv数组转Mat
+            opencv3编译安装
         </span>
     </div>
 </header>
@@ -164,9 +164,17 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="【opencv】数组转Mat"><a href="#【opencv】数组转Mat" class="headerlink" title="【opencv】数组转Mat"></a>【opencv】数组转Mat</h1><h2 id="一、16位数组转Mat"><a href="#一、16位数组转Mat" class="headerlink" title="一、16位数组转Mat"></a>一、16位数组转Mat</h2><p>16位数组转Mat，数组可以是一维的也可以是二维的，一行代码搞定，我使用的raw数据，亲测有效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mat img = Mat(high, width, CV_16UC1, raw, Mat::AUTO_STEP).clone();</span><br></pre></td></tr></table></figure></p>
-<p>high:图像的高度<br>width：图像的宽度<br>CV_16UC1：表示16位无符号1通道<br>raw：数组</p>
-<h2 id="二、16位Mat转8位Mat"><a href="#二、16位Mat转8位Mat" class="headerlink" title="二、16位Mat转8位Mat"></a>二、16位Mat转8位Mat</h2><p>数组转成16位Mat后，由于opencv中很多方法只支持8位，所以将16位转成8位比较方便。转化的方法研究了一段时间，不过最后发现，方法还是很简单的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double min, max;</span><br><span class="line">minMaxIdx(img, &amp;min, &amp;max);</span><br><span class="line">img.convertTo(img, CV_8UC1, 255.0 / (max - min), -255.0*min / (max - min));</span><br></pre></td></tr></table></figure></p>
+                <h2 id="ubuntu12下opencv3编译、安装"><a href="#ubuntu12下opencv3编译、安装" class="headerlink" title="ubuntu12下opencv3编译、安装"></a>ubuntu12下opencv3编译、安装</h2><p>系统：Ubuntu12<br>opencv版本：opencv_3.4.1</p>
+<h2 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h2><ul>
+<li>cmake</li>
+<li>cmake-gui</li>
+</ul>
+<h2 id="编译步骤"><a href="#编译步骤" class="headerlink" title="编译步骤"></a>编译步骤</h2><h3 id="1、创建目录"><a href="#1、创建目录" class="headerlink" title="1、创建目录"></a>1、创建目录</h3><p>在源代码目录下分别创建: </p>
+<ul>
+<li>build ——配置生成Makefile的目录</li>
+<li>install —— 编译结果安装的目录 </li>
+</ul>
+<p>两个目录。</p>
 
                 <hr>
                 
@@ -174,12 +182,12 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2019/08/23/opencv编译安装/" data-toggle="tooltip" data-placement="top" title="opencv3编译安装">&larr; Previous Post</a>
+                        <a href="/2019/08/23/opencv4编译安装/" data-toggle="tooltip" data-placement="top" title="opencv4编译安装">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2019/06/24/嵌入式驱动开发-2/" data-toggle="tooltip" data-placement="top" title="【嵌入式驱动三】内核配置和编译">Next Post &rarr;</a>
+                        <a href="/2019/08/15/opencv-16位数组转Mat/" data-toggle="tooltip" data-placement="top" title="opencv数组转Mat">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -198,7 +206,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#【opencv】数组转Mat"><span class="toc-text">【opencv】数组转Mat</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、16位数组转Mat"><span class="toc-text">一、16位数组转Mat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、16位Mat转8位Mat"><span class="toc-text">二、16位Mat转8位Mat</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu12下opencv3编译、安装"><span class="toc-text">ubuntu12下opencv3编译、安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用工具"><span class="toc-text">使用工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译步骤"><span class="toc-text">编译步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、创建目录"><span class="toc-text">1、创建目录</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>

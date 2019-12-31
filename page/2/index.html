@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/archives/">
+    <link rel="canonical" href="http://yoursite.com/page/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -44,7 +44,7 @@
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="false" data-istags="false
-" data-ishome="false">
+" data-ishome="true">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -117,6 +117,126 @@
 <!-- Main Content -->
 
 
+<style>
+
+    .custom-haojen-container .post-preview:nth-of-type(1),
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        text-align: center;
+        background-repeat: no-repeat;
+        border-radius: 3px;
+        background-size: cover;
+        padding: 0;
+        height: 300px;
+        display: table;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.16);
+    }
+
+    /*去掉诗歌的背景图片*/
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        background-image: none !important;
+        background-color: rgba(255, 248, 220, 0.5);
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) h2,
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta,
+    .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+        text-shadow: 0 0 40px rgba(0, 0, 0, 1);
+        letter-spacing: 1px;
+        color: #fff;
+        margin-top: 0;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta {
+        font-size: .9em;
+        font-weight: 300;
+        margin-top: 0;
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-child(1) .post-subtitle {
+        letter-spacing: 6px;
+        font-size: 18px;
+        font-family: unset;
+        font-weight: 400;
+        color: rgba(0, 0, 0, .75)
+    }
+
+    /*不显示摘要*/
+    .custom-haojen-container .post-preview:nth-child(1) .post-content-preview {
+        display: none
+    }
+
+    /*只第一个显示背景图片*/
+    .custom-haojen-container .post-preview:not(:nth-child(1)) {
+        background-image: none !important;
+    }
+
+    /*第一个分界线去掉*/
+    .custom-haojen-container hr:nth-of-type(1) {
+        display: none;
+    }
+
+    /*主题*/
+    .custom-haojen-container .post-preview:nth-of-type(1) > a {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    /*诗词标题*/
+    .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+        font-size: 35px;
+        font-family: STKaiti;
+        color: rgba(0, 0, 0, .8);
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) .post-meta {
+        color: #0e2231;
+    }
+
+    @media (max-width: 768px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 240px;
+        }
+
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 28px !important;
+            margin-top: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-of-type(1) > a {
+            padding: 20px
+        }
+    }
+
+    /*手机屏幕*/
+    @media (max-width: 400px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 195px;
+        }
+
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 20px !important;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 16px;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) a {
+            padding: 30px 20px;
+        }
+    }
+</style>
+
 <!-- Page Header -->
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
     <div class="row">
@@ -145,232 +265,18 @@
 
 
 <div class="post-preview " style="background-image: url('')">
-    <a href="/2019/12/31/VMware各个版本下载和激活码/">
+    <a href="/2019/06/14/first-md/">
         <h2 class="post-title">
-            未命名
+            第一篇
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-31
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-06-14
         </p>
         
         <div class="post-content-preview">
             <p>
-                VMware10、12、14、15版本的下载链接：下载地址：VMware Workstation Pro 15.0.0 Build 10134415https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/08/23/zbar-imx6q交叉编译安装/">
-        <h2 class="post-title">
-            zbarar_imx6q交叉编译安装
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-23
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/08/23/opencv4 imx6q交叉编译安装/">
-        <h2 class="post-title">
-            imx6q交叉编译安装
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-23
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/08/23/opencv4编译安装/">
-        <h2 class="post-title">
-            opencv4编译安装
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-23
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/08/23/opencv编译安装/">
-        <h2 class="post-title">
-            opencv3编译安装
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-23
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                ubuntu12下opencv3编译、安装系统：Ubuntu12opencv版本：opencv_3.4.1
-使用工具
-cmake
-cmake-gui
-
-编译步骤1、创建目录在源代码目录下分别创建: 
-
-build ——配置生成Makefile的目录
-install —— 编译结果安装的目录 
-
-..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/08/15/opencv-16位数组转Mat/">
-        <h2 class="post-title">
-            opencv数组转Mat
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-15
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                【opencv】数组转Mat一、16位数组转Mat16位数组转Mat，数组可以是一维的也可以是二维的，一行代码搞定，我使用的raw数据，亲测有效：1Mat img = Mat(high, width, CV_16UC1, raw, Mat::AUTO_STEP).clone();
-high:图像..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/06/24/嵌入式驱动开发-2/">
-        <h2 class="post-title">
-            【嵌入式驱动三】内核配置和编译
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-06-24
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                相关文章链接：【嵌入式驱动一】嵌入式驱动开发的前期准备（上）
-【嵌入式驱动二】嵌入式驱动开发的前期准备（下）如果在学习和工作的过程中有什么问题可以联系我，我非常乐意帮助大家解决问题。我的邮箱wangzh92429@163.com。
-内核配置和编译一、内核配置之前我们搭建好了交叉编译链，准备好内核..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/06/23/vim-config/">
-        <h2 class="post-title">
-            vim配置C/C++阅读、开发神器
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-06-23
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                Linux下没有类似于source insight这样方便快捷的工具，但是vim一样强大，我们可以把vim配置成类似于source insight一样的C/C++开发工具，让我们阅读、编辑代码，事半功倍！
-1、安装VundleVundle是vim的一个插件管理工具，非常好用，我们可以使用Vund..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/06/22/嵌入式驱动开发-1/">
-        <h2 class="post-title">
-            【嵌入式驱动二】嵌入式驱动开发的前期准备（下）
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-06-22
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                相关文章链接：【嵌入式驱动一】嵌入式驱动开发的前期准备（上）
-
-嵌入式驱动开发的前期准备（下）首先做一个声明，我手上只有一个imx6q的开发板，这个开发板也是公司的，我并非打广告。驱动运行在什么平台上都一样，你手上有的或者准备买的开发板什么样的都行，只要自己喜欢。如果在学习和工作的过程中有什么问..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview " style="background-image: url('')">
-    <a href="/2019/06/20/嵌入式驱动开发/">
-        <h2 class="post-title">
-            【嵌入式驱动 一】嵌入式驱动开发的前期准备（上）
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-06-20
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                从今天开始，我将写一系列嵌入式驱动开发的教程，大部分都是例程，使用的开发板是飞凌imx6Q。人无完人，文章难免有错误，希望大家邮箱告诉我，给我一个进步的机会，在这先谢谢大家！也感谢大家的阅读！如果对内容有别的见解也可以交流。（我的邮箱：wangzh92429@163.com）  
-【嵌入式驱动 ..
+                &emsp;&emsp;很久以前就想自己搭建一个个人博客，但是一直没有动手，今晚心血来潮，决心今晚一定要把博客搭好。有些事做就做了，不做也就一直不会做。&emsp;&emsp;博客搭建的还挺顺利，现在是23：30，希望以后借助这个平台写出优质的博客！  
+&emsp;&emsp;&emsp;&e..
             </p>
         </div>
     </a>
@@ -386,10 +292,10 @@ high:图像..
 
 <ul class="pager">
     
-    
-    <li class="next">
-        <a href="/archives/page/2/">Older Posts &rarr;</a>
+    <li class="previous">
+        <a href="/">&larr; Newer Posts</a>
     </li>
+    
     
 </ul>
 

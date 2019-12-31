@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        opencv数组转Mat｜undefined
+        
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2019/08/15/opencv-16位数组转Mat/">
+    <link rel="canonical" href="http://yoursite.com/2019/12/31/VMware各个版本下载和激活码/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -136,12 +136,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>opencv数组转Mat</h1>
+                    <h1></h1>
                     
                     <span class="meta">
                          作者 王振华
                         <span>
-                          日期 2019-08-15
+                          日期 2019-12-31
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -153,7 +153,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            opencv数组转Mat
+            
         </span>
     </div>
 </header>
@@ -164,22 +164,17 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="【opencv】数组转Mat"><a href="#【opencv】数组转Mat" class="headerlink" title="【opencv】数组转Mat"></a>【opencv】数组转Mat</h1><h2 id="一、16位数组转Mat"><a href="#一、16位数组转Mat" class="headerlink" title="一、16位数组转Mat"></a>一、16位数组转Mat</h2><p>16位数组转Mat，数组可以是一维的也可以是二维的，一行代码搞定，我使用的raw数据，亲测有效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mat img = Mat(high, width, CV_16UC1, raw, Mat::AUTO_STEP).clone();</span><br></pre></td></tr></table></figure></p>
-<p>high:图像的高度<br>width：图像的宽度<br>CV_16UC1：表示16位无符号1通道<br>raw：数组</p>
-<h2 id="二、16位Mat转8位Mat"><a href="#二、16位Mat转8位Mat" class="headerlink" title="二、16位Mat转8位Mat"></a>二、16位Mat转8位Mat</h2><p>数组转成16位Mat后，由于opencv中很多方法只支持8位，所以将16位转成8位比较方便。转化的方法研究了一段时间，不过最后发现，方法还是很简单的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double min, max;</span><br><span class="line">minMaxIdx(img, &amp;min, &amp;max);</span><br><span class="line">img.convertTo(img, CV_8UC1, 255.0 / (max - min), -255.0*min / (max - min));</span><br></pre></td></tr></table></figure></p>
+                <h2 id="VMware10、12、14、15版本的下载链接："><a href="#VMware10、12、14、15版本的下载链接：" class="headerlink" title="VMware10、12、14、15版本的下载链接："></a>VMware10、12、14、15版本的下载链接：</h2><p>下载地址：<br>VMware Workstation Pro 15.0.0 Build 10134415<br><a href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.0.0-10134415.exe" target="_blank" rel="noopener">https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.0.0-10134415.exe</a><br>VMware Workstation Pro 14.1.3 Build 9474260<br><a href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-14.1.3-9474260.exe" target="_blank" rel="noopener">https://download3.vmware.com/software/wkst/file/VMware-workstation-full-14.1.3-9474260.exe</a><br>VMware Workstation Pro 12.5.9 Build 7535481<br><a href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-12.5.9-7535481.exe" target="_blank" rel="noopener">https://download3.vmware.com/software/wkst/file/VMware-workstation-full-12.5.9-7535481.exe</a><br>VMware Workstation 10.0.7 Build 2844087<br><a href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-10.0.7-2844087.exe" target="_blank" rel="noopener">https://download3.vmware.com/software/wkst/file/VMware-workstation-full-10.0.7-2844087.exe</a></p>
+<h2 id="各个版本的激活证书："><a href="#各个版本的激活证书：" class="headerlink" title="各个版本的激活证书："></a>各个版本的激活证书：</h2><p>VMware Workstation Pro 15 激活许可证<br>UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA<br>VF750-4MX5Q-488DQ-9WZE9-ZY2D6<br>UU54R-FVD91-488PP-7NNGC-ZFAX6<br>YC74H-FGF92-081VZ-R5QNG-P6RY4<br>YC34H-6WWDK-085MQ-JYPNX-NZRA2<br>VMware Workstation Pro 14 激活许可证<br>FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA<br>CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD<br>VMware Workstation Pro 12 激活许可证<br>5A02H-AU243-TZJ49-GTC7K-3C61N<br>VF5XA-FNDDJ-085GZ-4NXZ9-N20E6<br>UC5MR-8NE16-H81WY-R7QGV-QG2D8<br>ZG1WH-ATY96-H80QP-X7PEX-Y30V4<br>AA3E0-0VDE1-0893Z-KGZ59-QGAVF<br>VMware Workstation Pro 10 激活许可证<br>1Z0G9-67285-FZG78-ZL3Q2-234JG<br>4C4EK-89KDL-5ZFP9-1LA5P-2A0J0<br>HY086-4T01N-CZ3U0-CV0QM-13DNU</p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/08/23/opencv编译安装/" data-toggle="tooltip" data-placement="top" title="opencv3编译安装">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/06/24/嵌入式驱动开发-2/" data-toggle="tooltip" data-placement="top" title="【嵌入式驱动三】内核配置和编译">Next Post &rarr;</a>
+                        <a href="/2019/08/23/zbar-imx6q交叉编译安装/" data-toggle="tooltip" data-placement="top" title="zbarar_imx6q交叉编译安装">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -198,7 +193,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#【opencv】数组转Mat"><span class="toc-text">【opencv】数组转Mat</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、16位数组转Mat"><span class="toc-text">一、16位数组转Mat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、16位Mat转8位Mat"><span class="toc-text">二、16位Mat转8位Mat</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VMware10、12、14、15版本的下载链接："><span class="toc-text">VMware10、12、14、15版本的下载链接：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各个版本的激活证书："><span class="toc-text">各个版本的激活证书：</span></a></li></ol>
                 </div>
             </div>
         </div>
